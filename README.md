@@ -44,7 +44,7 @@ You write...
 **Step 1:** Install plugin:
 
 ```sh
-npm install --save-dev postcss postcss-short-vars
+npm install --save-dev postcss postcss-short-var
 ```
 
 **Step 2:** Check you project for existed PostCSS config: `postcss.config.js`
@@ -59,7 +59,7 @@ and set this plugin in settings.
 ```diff
 module.exports = {
   plugins: [
-+   require('postcss-short-vars'),
++   require('postcss-short-var'),
     require('autoprefixer')
   ]
 }
