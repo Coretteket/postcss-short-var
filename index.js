@@ -1,24 +1,17 @@
 /**
  * @type {import('postcss').PluginCreator}
  */
- module.exports = () => {
-  // Work with options here
+module.exports = () => ({
+  postcssPlugin: "postcss-short-var",
 
-  return {
-    postcssPlugin: 'postcss-short-var',
+  Declaration(decl) {
+    if (!decl || !decl.value.includes("--")) return;
 
-    Declaration (decl) {
-      if (!decl || !decl.value.includes('--')) return;
+    decl.value = decl.value.split(" ").map((v) => {
+      if (v.match(/var(.*)/) || !v.match(/--.+/)) return v;
+      return v.replace(/(--[0-9-_\p{L}\p{Emoji_Presentation}]+)/ug, "var($1)");
+    }).join(" ");
+  },
+});
 
-      const arr = decl.value.split(' ').map((v) => {
-        if (v.match(/var(.*)/)) return v;
-        if (v.match(/--.+/)) return v.replace(/(--.+)/g, 'var($1)').replace(',)', '),');
-        return v;
-      });
-
-      decl.value = arr.join(' ');
-    }
-  }
-}
-
-module.exports.postcss = true
+module.exports.postcss = true;

@@ -1,5 +1,4 @@
 const postcss = require('postcss')
-
 const plugin = require('./')
 
 async function run (input, output) {
@@ -24,8 +23,8 @@ it('handles custom prop in function', async () => {
   await run('a{ color: rgba(--blue); }', 'a{ color: rgba(var(--blue)); }')
 });
 
-it('handles multiple custom props in function', async () => {
-  await run('a{ color: rgba(--blue, --red); }', 'a{ color: rgba(var(--blue), var(--red)); }')
+it('handles custom prop with unicode characters', async () => {
+  await run('a{ color: --foo-仮дέ😃-bar; }', 'a{ color: var(--foo-仮дέ😃-bar); }')
 });
 
 it('does not handle custom prop definition', async () => {
