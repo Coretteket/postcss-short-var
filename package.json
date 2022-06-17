@@ -1,5 +1,5 @@
 {
-  "name": "postcss-short-vars",
+  "name": "@coretteket/postcss-short-vars",
   "version": "0.0.0",
   "description": "PostCSS plugin to make CSS custom properties less verbose",
   "keywords": ["postcss", "css", "postcss-plugin", "postcss-short-vars"],
