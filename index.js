@@ -1,30 +1,23 @@
 /**
  * @type {import('postcss').PluginCreator}
  */
-module.exports = (opts = {}) => {
+ module.exports = (opts = {}) => {
   // Work with options here
 
   return {
     postcssPlugin: 'postcss-short-vars',
-    /*
-    Root (root, postcss) {
-      // Transform CSS AST here
-    }
-    */
 
-    /*
     Declaration (decl, postcss) {
-      // The faster way to find Declaration node
-    }
-    */
+      if (!decl || !decl.value.includes('--')) return;
 
-    /*
-    Declaration: {
-      color: (decl, postcss) {
-        // The fastest way find Declaration node if you know property name
-      }
+      const arr = decl.value.split(' ').map((v) => {
+        if (v.match(/var(.*)/)) return v;
+        if (v.match(/--.+/)) return `var(${v})`;
+        return v;
+      });
+
+      decl.value = arr.join(' ');
     }
-    */
   }
 }
 
