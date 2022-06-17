@@ -1,8 +1,8 @@
 {
-  "name": "postcss-short-vars",
+  "name": "postcss-short-var",
   "version": "0.0.0",
   "description": "PostCSS plugin to make CSS custom properties less verbose",
-  "keywords": ["postcss", "css", "postcss-plugin", "postcss-short-vars"],
+  "keywords": ["postcss", "css", "postcss-plugin", "postcss-short-var"],
   "scripts": {
     "test": "jest --coverage && eslint ."
   },
