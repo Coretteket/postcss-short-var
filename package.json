@@ -8,7 +8,7 @@
   },
   "author": "Quinten Coret <Qcoret@gmail.com>",
   "license": "MIT",
-  "repository": "Coretteket/postcss-short-vars",
+  "repository": "Coretteket/postcss-short-var",
   "engines": {
     "node": ">=12.0.0"
   },

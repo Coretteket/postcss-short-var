@@ -5,7 +5,7 @@
   // Work with options here
 
   return {
-    postcssPlugin: 'postcss-short-vars',
+    postcssPlugin: 'postcss-short-var',
 
     Declaration (decl) {
       if (!decl || !decl.value.includes('--')) return;
