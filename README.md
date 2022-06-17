@@ -1,22 +1,45 @@
-# postcss-short-vars
+# postcss-short-var
 
-[PostCSS] plugin to make CSS custom properties less verbose.
+A tiny [PostCSS] plugin to make CSS custom properties less verbose. Are you tired of writing `var(--foo)`, when most languages allow a simple `foo` to reference variables? This plugin will allow you to simply write `--foo` to save you those precious microseconds of your time. Contributions appreciated.
+
+## Usage
 
 [PostCSS]: https://github.com/postcss/postcss
 
+You write...
 ```css
+:root {
+  --red: #f00;
+}
+
 .foo {
-  /* Input example */
+  color: --red;
+}
+
+.bar {
+  --blur: 5px;
+  --white: 255 255 255;
+  box-shadow: 0 0 --blur rgb(--white);
+}
+```
+... and your browser will render ...
+```css
+:root {
+  --red: #f00;
+}
+
+.foo {
+  color: var(--red);
+}
+
+.bar {
+  --blur: 5px;
+  --white: 255 255 255;
+  box-shadow: 0 0 var(--blur) rgb(var(--white));
 }
 ```
 
-```css
-.foo {
-  /* Output example */
-}
-```
-
-## Usage
+## Installation
 
 **Step 1:** Install plugin:
 
